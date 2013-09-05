@@ -10,7 +10,7 @@
 #import "CTSessionOperation.h"
 #import "CTAppDelegate.h"
 
-static NSString *downloadUrl = @"http://www.wallpele.com/wp-content/uploads/2013/03/Download-Default-HD-Apple-Wallpaper.jpg";
+static NSString *downloadUrl = @"http://www.nasa.gov/sites/default/files/ladee_9.4.13_nasa_edge_0.jpg";
 
 @interface CTViewController ()
 

@@ -7,6 +7,7 @@
 //
 
 #import "CTSessionOperation.h"
+#import "CTAppDelegate.h"
 
 @implementation CTSessionOperation
 
@@ -94,8 +95,11 @@
 #pragma mark - NSURLSessionDelegate
 
 - (void)URLSessionDidFinishEventsForBackgroundURLSession:(NSURLSession *)session {
-    if (self.backgroundCompletionAction){
-        self.backgroundCompletionAction();
+    CTAppDelegate *appDelegate = (CTAppDelegate *)[[UIApplication sharedApplication] delegate];
+    if (appDelegate.backgroundSessionCompletionHandler) {
+        void (^completionHandler)() = appDelegate.backgroundSessionCompletionHandler;
+        appDelegate.backgroundSessionCompletionHandler = nil;
+        completionHandler();
     }
 }
 

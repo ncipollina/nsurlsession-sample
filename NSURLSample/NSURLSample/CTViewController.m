@@ -70,16 +70,6 @@ static NSString *downloadUrl = @"http://www.wallpele.com/wp-content/uploads/2013
         });
     };
     operation.isBackground = background;
-    if (background){
-        operation.backgroundCompletionAction = ^{
-            CTAppDelegate *appDelegate = (CTAppDelegate *)[[UIApplication sharedApplication] delegate];
-            if (appDelegate.backgroundSessionCompletionHandler) {
-                void (^completionHandler)() = appDelegate.backgroundSessionCompletionHandler;
-                appDelegate.backgroundSessionCompletionHandler = nil;
-                completionHandler();
-            }
-        };
-    }
 
     [operation enqueueOperation];
     self.downloadedImage.hidden = YES;

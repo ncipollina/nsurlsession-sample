@@ -10,7 +10,6 @@
 
 typedef void (^CTProgressBlock)(double totalBytesWritten, double bytesExpected);
 typedef void (^CTCompletionBlock)(NSURL *imageUrl, BOOL success);
-typedef void (^CTBackgroundCompletionBlock)();
 
 @interface CTSessionOperation : NSOperation<NSURLSessionDelegate, NSURLSessionTaskDelegate, NSURLSessionDownloadDelegate>
 
@@ -19,7 +18,6 @@ typedef void (^CTBackgroundCompletionBlock)();
 @property (nonatomic, strong) NSString *downloadUrl;
 @property (strong) CTProgressBlock progressAction;
 @property (strong) CTCompletionBlock completionAction;
-@property (strong) CTBackgroundCompletionBlock backgroundCompletionAction;
 @property (nonatomic, assign) BOOL isBackground;
 
 - (void)enqueueOperation;
